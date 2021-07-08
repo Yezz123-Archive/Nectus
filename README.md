@@ -82,18 +82,50 @@ $ flask db upgrade
 $ flask run
 ```
 
-# Preconfigured Packages
+## Running the Docker Container
+
+-   We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the flask app and then start the flask app container.
+
+```sh
+$ docker build
+```
+
+-   list all the docker images and you can also see the image `nectus:latest` in the list.
+
+```sh
+docker images
+```
+
+-   run the application at port 5000. The various options used are:
+
+> -   `-p`: publish the container's port to the host port.
+> -   `-d`: run the container in the background.
+> -   `-i`: run the container in interactive mode.
+> -   `-t`: to allocate pseudo-TTY.
+> -   `--name`: name of the container
+
+```sh
+docker container run -p 5000:5000 -dit --name Nectus nectus:latest
+```
+
+-   Check the status of the docker container
+
+```sh
+docker container ps
+```
+
+## Preconfigured Packages
 
 Includes preconfigured packages to kick start flask app by just setting appropriate configuration.
 
-| Package                                                                              | Usage                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| [flask-cors](https://flask-cors.readthedocs.io/)                                     | Configuring CORS                                                               |
-| [python-dotenv](https://pypi.org/project/python-dotenv/)                             | Reads the key-value pair from .env file and adds them to environment variable. |
-| [PyJWT](https://pyjwt.readthedocs.io/en/stable/)                                           | Python library which allows you to encode and decode JSON Web Tokens (JWT).                |
+| Package                                                  | Usage                                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
+| [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
+| [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
 
 `yapf` packages for `linting and formatting`
 
-# License
+## License
 
 This program is free software under MIT license. Please see the [LICENSE](LICENSE) file in our repository for the full text.
