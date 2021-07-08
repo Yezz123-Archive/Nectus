@@ -92,7 +92,7 @@ Includes preconfigured packages to kick start flask app by just setting appropri
 | [python-dotenv](https://pypi.org/project/python-dotenv/)                             | Reads the key-value pair from .env file and adds them to environment variable. |
 | [PyJWT](https://pyjwt.readthedocs.io/en/stable/)                                           | Python library which allows you to encode and decode JSON Web Tokens (JWT).                |
 
-`autopep8` & `flake8` as `dev` packages for `linting and formatting`
+`yapf` packages for `linting and formatting`
 
 # License
 
