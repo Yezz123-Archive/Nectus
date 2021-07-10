@@ -1,6 +1,6 @@
 ![NECTUS](.vscode/header.svg)
 
-# Nectus :rocket
+# Nectus 🚀
 
 Flask Boilerplate to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
 
@@ -82,6 +82,47 @@ flask db upgrade
 flask run
 ```
 
+## Setup The FrontEnd Part
+
+```sh
+#change Directory to Frontend
+$ cd Frontend
+
+# Prepare the environment by Installing all the Packages
+$ npm install package.json
+```
+
+- If all the Packages are installed and you see `node_modules` Folder Start :
+- if you feel there is no error in the settings of `.env`.
+- make sure the API url is correct.
+- If you feel that everything can be run, then run Frontend Part.
+
+```sh
+# Build the Project
+$ npm run build
+
+# Start The Project
+$ npm run start
+```
+
+- default port <http://localhost:5000/>
+
+```env
+REACT_APP_URL_API = http://localhost:5000
+```
+
+## Preconfigured Packages
+
+Includes preconfigured packages to kick start flask app by just setting appropriate configuration.
+
+| Package                                                  | Usage                                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
+| [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
+| [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
+
+`yapf` packages for `linting and formatting`
+
 ## Running the Docker Container
 
 - We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the flask app and then start the flask app container.
@@ -113,18 +154,6 @@ docker container run -p 5000:5000 -dit --name Nectus nectus:latest
 ```sh
 docker container ps
 ```
-
-## Preconfigured Packages
-
-Includes preconfigured packages to kick start flask app by just setting appropriate configuration.
-
-| Package                                                  | Usage                                                                          |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
-| [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
-| [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
-
-`yapf` packages for `linting and formatting`
 
 ## License
 
