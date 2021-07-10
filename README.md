@@ -1,6 +1,6 @@
 ![NECTUS](.vscode/header.svg)
 
-# Nectus :rocket
+# Nectus :rocket:
 
 Flask Boilerplate to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
 
