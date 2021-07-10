@@ -12,7 +12,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
 
 # lint
-RUN pip install --upgrade pip
+RUN pip install pip
 RUN pip install flake8
 COPY . .
 RUN flake8 --ignore=E501,F401 .
@@ -41,12 +41,6 @@ COPY ./entrypoint.prod.sh $APP_HOME
 
 # copy project
 COPY . $APP_HOME
-
-# chown all the files to the app user
-RUN chown -R app:app $APP_HOME
-
-# change to the app user
-USER app
 
 # run entrypoint.prod.sh
 ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]

@@ -1,6 +1,6 @@
 ![NECTUS](.vscode/header.svg)
 
-# Nectus :rocket:
+# Nectus :rocket
 
 Flask Boilerplate to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
 
@@ -8,9 +8,9 @@ Flask Boilerplate to quickly get started with production grade flask application
 
 ### Prerequisites
 
--   Python 3.9.2 or higher
--   PostgreSQL
--   Docker
+- Python 3.9.2 or higher
+- PostgreSQL
+- Docker
 
 ### Project setup
 
@@ -24,8 +24,8 @@ $ cd Nectus
 
 ### Creating virtual environment
 
--   Install `pipenv` a global python project `pip install pipenv`
--   Create a `virtual environment` for this project
+- Install `pipenv` a global python project `pip install pipenv`
+- Create a `virtual environment` for this project
 
 ```shell
 # creating pipenv environment for python 3
@@ -43,7 +43,7 @@ $ pipenv install -d
 
 ### Configuration
 
--   Create a `.env` file from `.env.sample` and set appropriate environment variables before running the project
+- Create a `.env` file from `.env.sample` and set appropriate environment variables before running the project
 
 ```sh
 APP_NAME=Nectus
@@ -62,53 +62,53 @@ FLASK_ENV=development
 
 ### Database Migration
 
--   Make sure the database name username, password and host have been set in the env
+- Make sure the database name username, password and host have been set in the env
 
--   Migrate and upgrade database into your database management (for this case postgreeSQL)
+- Migrate and upgrade database into your database management (for this case postgreeSQL)
 
 ```sh
-$ flask db init
+flask db init
 
-$ flask db migrate -m "create new table"
+flask db migrate -m "create new table"
 
-$ flask db upgrade
+flask db upgrade
 ```
 
 ### Running app
 
--   If you feel that everything can be run, then run the Flash API
+- If you feel that everything can be run, then run the Flash API
 
 ```sh
-$ flask run
+flask run
 ```
 
 ## Running the Docker Container
 
--   We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the flask app and then start the flask app container.
+- We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the flask app and then start the flask app container.
 
 ```sh
-$ docker build
+docker build
 ```
 
--   list all the docker images and you can also see the image `nectus:latest` in the list.
+- list all the docker images and you can also see the image `nectus:latest` in the list.
 
 ```sh
 docker images
 ```
 
--   run the application at port 5000. The various options used are:
+- run the application at port 5000. The various options used are:
 
-> -   `-p`: publish the container's port to the host port.
-> -   `-d`: run the container in the background.
-> -   `-i`: run the container in interactive mode.
-> -   `-t`: to allocate pseudo-TTY.
-> -   `--name`: name of the container
+> - `-p`: publish the container's port to the host port.
+> - `-d`: run the container in the background.
+> - `-i`: run the container in interactive mode.
+> - `-t`: to allocate pseudo-TTY.
+> - `--name`: name of the container
 
 ```sh
 docker container run -p 5000:5000 -dit --name Nectus nectus:latest
 ```
 
--   Check the status of the docker container
+- Check the status of the docker container
 
 ```sh
 docker container ps
