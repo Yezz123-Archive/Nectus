@@ -1,0 +1,20 @@
+.main.container {
+    margin-top: 60px;
+}
+
+.submit-button {
+    margin-top: 100px;
+    float: right;
+}
+
+.data {
+    margin-top: 15px;
+}
+
+thead tr td {
+    background: #e0e0e0 !important;
+}
+
+.ui.inverted.dimmer {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
