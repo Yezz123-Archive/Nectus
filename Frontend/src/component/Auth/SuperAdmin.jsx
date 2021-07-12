@@ -70,7 +70,7 @@ function SuperAdmin(props) {
     return (
         <div>
             <Container>
-                <h4> Tambah Super Admin </h4>
+                <h4> Register </h4>
                 <Alert color="success" style={{ display: data.display }}>
                     {data.errorMessage}
                 </Alert>
@@ -139,7 +139,7 @@ function SuperAdmin(props) {
                                         type="button"
                                         onClick={() => tambahSuperAdmin()}
                                     >
-                                        Simpan
+                                        Join Us
                                     </Button>
                                 </Col>
                             </Row>

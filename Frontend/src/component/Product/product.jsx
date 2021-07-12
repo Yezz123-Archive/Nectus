@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import { Table, Container, Button } from "reactstrap";
 import { AuthContext } from "../../App";
 import axios from "axios";
@@ -10,24 +8,18 @@ const api = process.env.REACT_APP_URL_API + "/products";
 function Product() {
     const [product, setProduct] = useState([]);
     const { state } = useContext(AuthContext);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchData = useCallback(() => {
-        var config = {
-            headers: {
-                "Content-type": "application/json",
-                Authorization: "Bearer " + state.token,
-            },
-        };
-
-        axios
-            .get(api, config)
-            .then((res) => {
-                setProduct(res.data.data);
-            })
-            .catch((error) => {
-                console.log(error);
+            var config = {
+                headers: {
+                    "Content-type": "application/json",
+                    Authorization: "Bearer " + state.token,
+                },
+            };
+            axios.get(api, config).then(response => {
+                setProduct(response.data);
             });
-    });
+        },
+        [state.token]);
 
     useEffect(() => {
         fetchData();

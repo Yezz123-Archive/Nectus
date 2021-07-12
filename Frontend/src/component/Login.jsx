@@ -89,7 +89,7 @@ function Login(props) {
                     <Col>
                         <CardImg
                             width="100"
-                            src="https://placeimg.com/640/480/people"
+                            src="https://placeimg.com/640/480/nature"
                         />
                     </Col>
                     <Col>
@@ -102,7 +102,7 @@ function Login(props) {
                                     type="email"
                                     name="email"
                                     id="exampleEmail"
-                                    placeholder="with a placeholder"
+                                    placeholder="email@nectus.com"
                                     value={data.email}
                                     onChange={handleInputChange}
                                 />
@@ -113,7 +113,7 @@ function Login(props) {
                                     type="password"
                                     name="password"
                                     id="examplePassword"
-                                    placeholder="password placeholder"
+                                    placeholder="*********"
                                     value={data.password}
                                     onChange={handleInputChange}
                                 />
