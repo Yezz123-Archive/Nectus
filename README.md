@@ -1,8 +1,10 @@
 ![NECTUS](.vscode/header.svg)
 
-# Nectus :rocket:
+# Nectus 🚀
 
-Flask Boilerplate to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
+Flask Boilerplate with A Simple Frontend Based on ReactJs to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
+
+>__Notes__ am not that great level of coding Frontend, also I'm new Human Being try to understand the ReactJs Tech and have some Basics Knowledge.
 
 ## Getting Started
 
@@ -12,17 +14,17 @@ Flask Boilerplate to quickly get started with production grade flask application
 - PostgreSQL
 - Docker
 
-### Project setup
+### Backend Setup
 
 ```sh
 # clone the repo
 $ git clone https://github.com/yezz123/Nectus.git
 
 # move to the project folder
-$ cd Nectus
+$ cd Nectus/Backend
 ```
 
-### Creating virtual environment
+#### Creating virtual environment
 
 - Install `pipenv` a global python project `pip install pipenv`
 - Create a `virtual environment` for this project
@@ -41,7 +43,7 @@ $ pipenv install -d --python 3.8
 $ pipenv install -d
 ```
 
-### Configuration
+#### Configuration
 
 - Create a `.env` file from `.env.sample` and set appropriate environment variables before running the project
 
@@ -60,7 +62,7 @@ FLASK_APP=main.py
 FLASK_ENV=development
 ```
 
-### Database Migration
+#### Database Migration
 
 - Make sure the database name username, password and host have been set in the env
 
@@ -74,13 +76,65 @@ flask db migrate -m "create new table"
 flask db upgrade
 ```
 
-### Running app
+#### Running app
 
 - If you feel that everything can be run, then run the Flash API
 
 ```sh
 flask run
 ```
+
+### Frontend Setup
+
+- We Just finish the Configuration for the backend part, now let's try to run the Frontend Side.
+- Our Frontend Based on ReactJs & with some simple addons.
+
+```sh
+#change Directory to Frontend
+$ cd ../ && cd Frontend
+
+# Prepare the environment by Installing all the Packages
+$ yarn install 
+```
+
+- If all the Packages are installed and you see `node_modules` Folder Start :
+- if you feel there is no error in the settings of `.env`.
+- make sure the API url is correct.
+- If you feel that everything can be run, then run Frontend Part.
+
+```sh
+# Build the Project
+$ npm run build
+
+# Start The Project
+$ npm run start
+```
+
+- default port <http://localhost:5000/>
+
+```env
+REACT_APP_URL_API = http://localhost:5000
+```
+
+## Preconfigured Packages
+
+- Preconfigured packages to kick start flask app by just setting appropriate configuration:
+
+| Package                                                  | Usage                                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
+| [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
+| [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
+
+- Preconfigured packages to kick start React app by just setting appropriate configuration:
+
+| Package                                                  | Usage                                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [Axios](https://github.com/axios/axios)                  | Promise based HTTP client for the browser and node.js                          |
+| [reactstrap](https://reactstrap.github.io/)              | Stateless React Components for Bootstrap 4.                                    |
+| [Babel-loader](https://github.com/babel/babel-loader)    | This package allows transpiling JavaScript files using Babel and webpack.      |
+
+`yapf` packages for `linting and formatting`
 
 ## Running the Docker Container
 
@@ -104,27 +158,22 @@ docker images
 > - `-t`: to allocate pseudo-TTY.
 > - `--name`: name of the container
 
-```sh
-docker container run -p 5000:5000 -dit --name Nectus nectus:latest
+```yaml
+# here you can run the Backend part with docker provided in the Backend Directory
+$ cd Nectus/Backend
+$ docker container run -p 5000:5000 -dit --name Nectus backend:latest
+
+# here you can run the Frontend part with docker provided in the Frontend Directory
+$ cd ../Frontend
+$ docker container run -p 5000:5000 -dit --name Nectus frontend:latest
 ```
 
 - Check the status of the docker container
 
-```sh
-docker container ps
+```yaml
+# shows running containers by default.
+$ docker container ps
 ```
-
-## Preconfigured Packages
-
-Includes preconfigured packages to kick start flask app by just setting appropriate configuration.
-
-| Package                                                  | Usage                                                                          |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
-| [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
-| [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
-
-`yapf` packages for `linting and formatting`
 
 ## License
 
