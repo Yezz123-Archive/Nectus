@@ -116,13 +116,21 @@ REACT_APP_URL_API = http://localhost:5000
 
 ## Preconfigured Packages
 
-Includes preconfigured packages to kick start flask app by just setting appropriate configuration.
+- Preconfigured packages to kick start flask app by just setting appropriate configuration:
 
 | Package                                                  | Usage                                                                          |
 | -------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
 | [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
 | [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
+
+- Preconfigured packages to kick start React app by just setting appropriate configuration:
+
+| Package                                                  | Usage                                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [Axios](https://github.com/axios/axios)                  | Promise based HTTP client for the browser and node.js                          |
+| [reactstrap](https://reactstrap.github.io/)              | Stateless React Components for Bootstrap 4.                                    |
+| [Babel-loader](https://github.com/babel/babel-loader)    | This package allows transpiling JavaScript files using Babel and webpack.      |
 
 `yapf` packages for `linting and formatting`
 
@@ -148,14 +156,21 @@ docker images
 > - `-t`: to allocate pseudo-TTY.
 > - `--name`: name of the container
 
-```sh
-docker container run -p 5000:5000 -dit --name Nectus nectus:latest
+```yaml
+# here you can run the Backend part with docker provided in the Backend Directory
+$ cd Nectus/Backend
+$ docker container run -p 5000:5000 -dit --name Nectus backend:latest
+
+# here you can run the Frontend part with docker provided in the Frontend Directory
+$ cd ../Frontend
+$ docker container run -p 5000:5000 -dit --name Nectus frontend:latest
 ```
 
 - Check the status of the docker container
 
-```sh
-docker container ps
+```yaml
+# shows running containers by default.
+$ docker container ps
 ```
 
 ## License
