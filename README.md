@@ -2,7 +2,9 @@
 
 # Nectus 🚀
 
-Flask Boilerplate to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
+Flask Boilerplate with A Simple Frontend Based on ReactJs to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
+
+>__Notes__ am not that great level of coding Frontend, also I'm new Human Being try to understand the ReactJs Tech and have some Basics Knowledge.
 
 ## Getting Started
 
@@ -92,7 +94,7 @@ flask run
 $ cd ../ && cd Frontend
 
 # Prepare the environment by Installing all the Packages
-$ npm install package.json
+$ yarn install 
 ```
 
 - If all the Packages are installed and you see `node_modules` Folder Start :
