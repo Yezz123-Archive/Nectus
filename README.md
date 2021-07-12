@@ -1,6 +1,6 @@
 ![NECTUS](.vscode/header.svg)
 
-# Nectus :rocket:
+# Nectus 🚀
 
 Flask Boilerplate to quickly get started with production grade flask application with some additional packages and configuration prebuilt.
 
@@ -12,17 +12,17 @@ Flask Boilerplate to quickly get started with production grade flask application
 - PostgreSQL
 - Docker
 
-### Project setup
+### Backend Setup
 
 ```sh
 # clone the repo
 $ git clone https://github.com/yezz123/Nectus.git
 
 # move to the project folder
-$ cd Nectus
+$ cd Nectus/Backend
 ```
 
-### Creating virtual environment
+#### Creating virtual environment
 
 - Install `pipenv` a global python project `pip install pipenv`
 - Create a `virtual environment` for this project
@@ -41,7 +41,7 @@ $ pipenv install -d --python 3.8
 $ pipenv install -d
 ```
 
-### Configuration
+#### Configuration
 
 - Create a `.env` file from `.env.sample` and set appropriate environment variables before running the project
 
@@ -60,7 +60,7 @@ FLASK_APP=main.py
 FLASK_ENV=development
 ```
 
-### Database Migration
+#### Database Migration
 
 - Make sure the database name username, password and host have been set in the env
 
@@ -74,7 +74,7 @@ flask db migrate -m "create new table"
 flask db upgrade
 ```
 
-### Running app
+#### Running app
 
 - If you feel that everything can be run, then run the Flash API
 
@@ -82,11 +82,14 @@ flask db upgrade
 flask run
 ```
 
-## Setup The FrontEnd Part
+### Frontend Setup
+
+- We Just finish the Configuration for the backend part, now let's try to run the Frontend Side.
+- Our Frontend Based on ReactJs & with some simple addons.
 
 ```sh
 #change Directory to Frontend
-$ cd Frontend
+$ cd ../ && cd Frontend
 
 # Prepare the environment by Installing all the Packages
 $ npm install package.json
