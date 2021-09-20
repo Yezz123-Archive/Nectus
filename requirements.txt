@@ -13,7 +13,7 @@ itsdangerous==2.0.1
 Jinja2==3.0.1
 Mako==1.1.5
 MarkupSafe==2.0.1
-postgres==3.0.0
+postgres==4.0
 psycopg2-binary==2.9.1
 psycopg2-pool==1.1
 PyJWT==2.1.0
