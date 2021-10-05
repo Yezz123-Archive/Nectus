@@ -10,7 +10,7 @@ Flask-Seeder==1.2.0
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
 itsdangerous==2.0.1
-Jinja2==3.0.1
+Jinja2==3.0.2
 Mako==1.1.5
 MarkupSafe==2.0.1
 postgres==4.0
