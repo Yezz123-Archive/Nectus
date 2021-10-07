@@ -16,7 +16,7 @@ MarkupSafe==2.0.1
 postgres==4.0
 psycopg2-binary==2.9.1
 psycopg2-pool==1.1
-PyJWT==2.1.0
+PyJWT==2.2.0
 PyMySQL==1.0.2
 python-dateutil==2.8.2
 python-dotenv==0.19.0
