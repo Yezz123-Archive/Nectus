@@ -24,4 +24,4 @@ python-editor==1.0.4
 six==1.16.0
 SQLAlchemy==1.4.25
 Werkzeug==2.0.2
-pre-commit==2.4.0
+pre-commit==2.15.0
