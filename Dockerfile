@@ -1,8 +1,6 @@
 FROM ubuntu:latest
 FROM python:3.9
 
-WORKDIR /app
-
 RUN apt update && apt upgrade -y
 
 RUN apt install -y -q build-essential python3-pip python3-dev
