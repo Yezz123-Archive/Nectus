@@ -1,22 +1,19 @@
-# pull official base image
+FROM ubuntu:latest
 FROM python:3.9
 
-# set work directory
 WORKDIR /app
 
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN apt update && apt upgrade -y
 
-# install psycopg2 dependencies
-RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
+RUN apt install -y -q build-essential python3-pip python3-dev
+RUN pip3 install -U pip setuptools wheel
+RUN pip3 install gunicorn uvloop httptools
 
-RUN pip install pip
-COPY requirements.txt  /app/requirements.txt
-RUN pip install -r requirements.txt
+COPY requirements.txt /app/requirements.txt
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /app/requirements.txt
 
-# copy project
-COPY . /app/
+COPY ./ /app
 
 ENV ACCESS_LOG=${ACCESS_LOG:-/proc/1/fd/1}
 ENV ERROR_LOG=${ERROR_LOG:-/proc/1/fd/2}
