@@ -1,29 +1,27 @@
 version: "3.7"
 
 services:
-    web:
-        build: ./app
-        command: python main.py
-        volumes:
-            - ./app/:/usr/src/app/
-        ports:
-            - 8000:8000
-        environment:
-            - DB_HOST=
-            - DB_DATABASE=
-            - DB_USERNAME=
-            - DB_PASSWORD=
-            - JWT_SECRET=
-        depends_on:
-            - db
     db:
         image: postgres:11.5-alpine
         volumes:
             - postgres_data:/var/lib/postgresql/data/
         environment:
-            - POSTGRES_USER=
-            - POSTGRES_PASSWORD=
-            - POSTGRES_DB=
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=postgres
+    backend:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: python main.py
+        volumes:
+            - ./app/:/app/
+        ports:
+            - 8000:8000
+        env_file:
+            - .env.sample
+        depends_on:
+            - db
 
 volumes:
     postgres_data:

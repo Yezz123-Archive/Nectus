@@ -1,46 +1,17 @@
-# pull official base image
-FROM python:3.8.3-alpine as builder
+FROM ubuntu:latest
+FROM python:3.9
 
-# set work directory
-WORKDIR /usr/src/app
+RUN apt update && apt upgrade -y
 
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN apt install -y -q build-essential python3-pip python3-dev
+RUN pip3 install -U pip setuptools wheel
+RUN pip3 install gunicorn uvloop httptools
 
-# install psycopg2 dependencies
-RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
+COPY requirements.txt /app/requirements.txt
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /app/requirements.txt
 
-# lint
-RUN pip install pip
-RUN pip install flake8
-COPY . .
-RUN flake8 --ignore=E501,F401 .
+COPY ./ /app
 
-# install dependencies
-COPY ./requirements.txt .
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
-
-# create directory for the app user
-RUN mkdir -p /home/app
-
-# create the appropriate directories
-ENV HOME=/home/app
-ENV APP_HOME=/home/app/web
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
-
-# install dependencies
-RUN apk update && apk add libpq
-COPY --from=builder /usr/src/app/wheels /wheels
-COPY --from=builder /usr/src/app/requirements.txt .
-RUN pip install --no-cache /wheels/*
-
-# copy entrypoint-prod.sh
-COPY ./entrypoint.prod.sh $APP_HOME
-
-# copy project
-COPY . $APP_HOME
-
-# run entrypoint.prod.sh
-ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]
+ENV ACCESS_LOG=${ACCESS_LOG:-/proc/1/fd/1}
+ENV ERROR_LOG=${ERROR_LOG:-/proc/1/fd/2}

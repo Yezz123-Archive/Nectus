@@ -1,4 +1,4 @@
-![NECTUS](.vscode/header.svg)
+![NECTUS](.github/header.svg)
 
 # Nectus :rocket:
 
@@ -8,9 +8,9 @@ Flask Boilerplate to quickly get started with production grade flask application
 
 ### Prerequisites
 
-- Python 3.9.2 or higher
+- Python 3.6 or higher
 - PostgreSQL
-- Docker
+- Docker(optional)
 
 ### Project setup
 
@@ -22,23 +22,20 @@ $ git clone https://github.com/yezz123/Nectus.git
 $ cd Nectus
 ```
 
-### Creating virtual environment
+### Creating virtual environment 📦
 
-- Install `pipenv` a global python project `pip install pipenv`
-- Create a `virtual environment` for this project
+- Using [virtualenv](https://virtualenv.pypa.io/en/latest/) 📦
+- Create a `virtual environment` for this project 📦
 
 ```shell
-# creating pipenv environment for python 3
-$ pipenv --three
+# creating virtual environment
+$ virtualenv venv
 
-# activating the pipenv environment
-$ pipenv shell
+# activating the virtual environment
+$ source venv/bin/activate
 
-# if you have multiple python 3 versions installed then
-$ pipenv install -d --python 3.8
-
-# install all dependencies (include -d for installing dev dependencies)
-$ pipenv install -d
+# installing dependencies
+$ pip install -r requirements.txt
 ```
 
 ### Configuration
@@ -76,43 +73,18 @@ flask db upgrade
 
 ### Running app
 
-- If you feel that everything can be run, then run the Flash API
+- If you feel that everything can be run, then run the Flask API
 
 ```sh
 flask run
 ```
 
-## Running the Docker Container
+### Running the Application in Docker 🐳
 
-- We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the flask app and then start the flask app container.
+- We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the Flask app and then start the application container.
+- I provide a simplified way by Using a Pre-configured `Makefile` just write in your CLI `make help` and use the commands.
 
-```sh
-docker build
-```
-
-- list all the docker images and you can also see the image `nectus:latest` in the list.
-
-```sh
-docker images
-```
-
-- run the application at port 5000. The various options used are:
-
-> - `-p`: publish the container's port to the host port.
-> - `-d`: run the container in the background.
-> - `-i`: run the container in interactive mode.
-> - `-t`: to allocate pseudo-TTY.
-> - `--name`: name of the container
-
-```sh
-docker container run -p 5000:5000 -dit --name Nectus nectus:latest
-```
-
-- Check the status of the docker container
-
-```sh
-docker container ps
-```
+__Note:__ About the preconfigured `.env.sample`, i use it to pass all checks relate to Github Actions, you could check both the [Docker-compose.yml](docker-compose.yml) and [Build.yml](.github/workflows/build.yml).
 
 ## Preconfigured Packages
 
@@ -121,11 +93,8 @@ Includes preconfigured packages to kick start flask app by just setting appropri
 | Package                                                  | Usage                                                                          |
 | -------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | [flask-cors](https://flask-cors.readthedocs.io/)         | Configuring CORS                                                               |
-| [python-dotenv](https://pypi.org/project/python-dotenv/) | Reads the key-value pair from .env file and adds them to environment variable. |
 | [PyJWT](https://pyjwt.readthedocs.io/en/stable/)         | Python library which allows you to encode and decode JSON Web Tokens (JWT).    |
 
-`yapf` packages for `linting and formatting`
+## License 📝
 
-## License
-
-This program is free software under MIT license. Please see the [LICENSE](LICENSE) file in our repository for the full text.
+This project is licensed under the terms of the [MIT license](LICENSE).
