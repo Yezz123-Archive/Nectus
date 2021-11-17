@@ -11,7 +11,7 @@ Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
 itsdangerous==2.0.1
 Jinja2==3.0.3
-Mako==1.1.5
+Mako==1.1.6
 MarkupSafe==2.0.1
 postgres==4.0
 psycopg2-binary==2.9.2
