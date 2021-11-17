@@ -22,6 +22,6 @@ python-dateutil==2.8.2
 python-dotenv==0.19.1
 python-editor==1.0.4
 six==1.16.0
-SQLAlchemy==1.4.26
+SQLAlchemy==1.4.27
 Werkzeug==2.0.2
 pre-commit==2.15.0
