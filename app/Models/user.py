@@ -22,7 +22,11 @@ class SecUsers(db.Model):
     email = db.Column(db.String(60), index=True, unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
     verification = db.Column(db.Integer, nullable=False, default="0")
-    rememberToken = db.Column(db.String(250), nullable=True, unique=True,)
+    rememberToken = db.Column(
+        db.String(250),
+        nullable=True,
+        unique=True,
+    )
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     created_by = db.Column(db.String(250), nullable=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)

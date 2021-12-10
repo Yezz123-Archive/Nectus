@@ -95,7 +95,12 @@ def saveSuperAdmin():
         email = request.form.get("email")
         password = request.form.get("password")
 
-        data = [{"username": username, "email": email,}]
+        data = [
+            {
+                "username": username,
+                "email": email,
+            }
+        ]
 
         user = SecUsers(full_name=full_name, username=username, email=email)
         user.setPassword(password)
