@@ -1,6 +1,4 @@
-import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
+from decouple import config
 
 
 class Config(object):
@@ -11,13 +9,20 @@ class Config(object):
         object (): The parent class.
     """
 
-    HOST = str(os.environ.get("DB_HOST"))
-    DATABASE = str(os.environ.get("DB_DATABASE"))
-    USERNAME = str(os.environ.get("DB_USERNAME"))
-    PASSWORD = str(os.environ.get("DB_PASSWORD"))
+    HOST = config("DB_HOST")
+    DATABASE = config("DB_NAME")
+    USERNAME = config("DB_USER")
+    PASSWORD = config("DB_PASSWORD")
+    PORT = config("DB_PORT")
 
     SQLALCHEMY_DATABASE_URI = (
-        "postgresql://" + USERNAME + ":" + PASSWORD + "@" + HOST + "/" + DATABASE
+        "postgresql://{username}:{password}@{host}:{port}/{database}".format(
+            username=USERNAME,
+            password=PASSWORD,
+            host=HOST,
+            port=PORT,
+            database=DATABASE,
+        )
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = True

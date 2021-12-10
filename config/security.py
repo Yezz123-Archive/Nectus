@@ -1,6 +1,4 @@
-import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
+from decouple import config
 
 
 class JWT(object):
@@ -14,6 +12,6 @@ class JWT(object):
         object: JWT settings
     """
 
-    JWT_SECRET_KEY = str(os.environ.get("JWT_SECRET"))
+    JWT_SECRET_KEY = config("JWT_SECRET_KEY")
     JWT_BLACKLIST_ENABLED = True
     JWT_BLACKLIST_TOKEN_CHECKS = ["access", "refresh"]

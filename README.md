@@ -43,19 +43,27 @@ $ pip install -r requirements.txt
 - Create a `.env` file from `.env.sample` and set appropriate environment variables before running the project
 
 ```sh
-APP_NAME=Nectus
+# Database configuration
+DB_HOST=
+DB_Name=
+DB_USERNAME=
+DB_PASSWORD=
+DB_PORT=
 
-DB_HOST= # Host ex. localhost
-DB_DATABASE= # Database
-DB_USERNAME= # Username ex. Root
-DB_PASSWORD= # Password
+# JWT configuration
+JWT_SECRET_KEY=
+UPLOAD_FOLDER =
 
-JWT_SECRET= # generate a JWT Secret
-UPLOAD_FOLDER = public
+# APP configuration
+HOST=
+PORT=
 
+# Flask configuration
 FLASK_APP=main.py
 FLASK_ENV=development
 ```
+
+__NOTE:__ The Pre-configured environment variables are for using Docker.
 
 ### Database Migration
 
