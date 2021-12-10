@@ -22,3 +22,6 @@ services:
             - .env.sample
         depends_on:
             - db
+
+volumes:
+    postgres_data:
