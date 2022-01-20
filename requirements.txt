@@ -32,7 +32,7 @@ python-dotenv==0.19.2
 python-editor==1.0.4
 PyYAML==6.0
 six==1.16.0
-SQLAlchemy==1.4.28
+SQLAlchemy==1.4.30
 toml==0.10.2
 virtualenv==20.10.0
 Werkzeug==2.0.2
