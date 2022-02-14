@@ -13,7 +13,7 @@ Flask-Migrate==3.1.0
 Flask-Seeder==1.2.0
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
-identify==2.4.0
+identify==2.4.10
 itsdangerous==2.0.1
 Jinja2==3.0.3
 Mako==1.1.6
