@@ -4,7 +4,7 @@ cfgv==3.3.1
 click==8.0.3
 colorama==0.4.4
 distlib==0.3.4
-filelock==3.4.0
+filelock==3.5.1
 Flask==2.0.2
 Flask-Cors==3.0.10
 Flask-DotEnv==0.1.2
