@@ -34,5 +34,5 @@ PyYAML==6.0
 six==1.16.0
 SQLAlchemy==1.4.28
 toml==0.10.2
-virtualenv==20.10.0
+virtualenv==20.13.3
 Werkzeug==2.0.2
