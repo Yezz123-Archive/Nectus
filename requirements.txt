@@ -19,7 +19,7 @@ Jinja2==3.0.3
 Mako==1.1.6
 MarkupSafe==2.0.1
 nodeenv==1.6.0
-platformdirs==2.4.0
+platformdirs==3.0.0
 postgres==4.0
 pre-commit==2.16.0
 psycopg2-binary==2.9.2
